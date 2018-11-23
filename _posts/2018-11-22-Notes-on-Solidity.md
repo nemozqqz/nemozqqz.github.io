@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: Notes on Solidity
 ---
 # Notes on Solidity
