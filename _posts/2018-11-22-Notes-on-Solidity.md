@@ -1,5 +1,8 @@
+---
+layout:default
+title: Notes on Solidity
+---
 # Notes on Solidity
-
 ## require VS assert
 
 两者都在断言不满足的时候失败然后回滚，require比较友好，会退回剩余gas， assert会吃掉剩余gas。
