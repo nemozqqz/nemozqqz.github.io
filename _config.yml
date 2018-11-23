@@ -1,14 +1,9 @@
 # Setup
-title:        Project or Site name
-tagline:      A responsive theme for your project on GitHub Pages
+title:        nemozqqz's blog
+tagline:      不要去当流水线工人，而是去创造一套新的流水线
 baseurl:      ""
 paginate:     1
 locale:       "en"
-
-# About/contact
-author:
-  name:       Author name
-  url:        http://yourhomepage.com 
 
 # Gems
 gems:
