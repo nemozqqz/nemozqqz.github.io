@@ -76,7 +76,7 @@ PrimaryExpression = BooleanLiteral
 函数的属性包括了是否是constant，是否是constructor，是否payable，函数名，可见性.
 function的第一个child是ParameterList, 第二个child也叫ParameterList但其实表示返回值, 可见性、修饰符等声明，然后就是block,有多个statement组成，statement又由expression组成...
 
-![一个简单的ast tree](/_images/solidity_ast.png)
+![一个简单的ast tree](../_images/solidity_ast.png)
 ```solidity
 contract A {
     uint member;
