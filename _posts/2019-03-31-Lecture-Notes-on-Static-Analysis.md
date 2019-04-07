@@ -1,3 +1,7 @@
+---
+layout: post
+title: Lecture Notes on Static Analysis
+---
 # Lecture Notes on Static Analysis
 
 记录一些学习程序分析的感想
