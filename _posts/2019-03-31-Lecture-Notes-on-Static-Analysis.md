@@ -79,7 +79,7 @@ $$
 * 如果f是单调的，那么`f(x ⊓ y) ≤ f(x) ⊓ f(y）`
 * 如果f是分配的，那么` f(x ⊓ y) = f(x) ⊓ f(y）`
 
-![Meet-Over-Path](/assets/meet_over_path.png)
+![Meet-Over-Path](/assets/mop.png)
 
 枚举所有路径，然后交汇的值      
 
