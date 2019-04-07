@@ -17,10 +17,14 @@ Rice定理是指出了程序分析的一个理论界限，实际上可以通过�
 说到集合，就先补充一些格的知识。注意这里的格不是线性空间那个整数格，这里是偏序集。
 
 格的定义是`L = (S, ≤)`,  `≤`是集合的二元关系（包含于）， 上界是⊤，下界是⊥，格中的任意两个元素都有最小上界 (x⊔y)和最大下界 和最大下界 (x⊓y)，相当于集合的并和交运算。在格上的单调函数f: L → L满足如下性质
+
+
 $$ ∀x,y∈S : x ≤ y ⇒ f(x) ≤ f(y) $$
 
-对于一个高度有限的格，单调函数f有一个最小不动点`f(x)=x`
+对于一个高度有限的格，单调函数f有一个最小不动点`f(x)=x`.
 该不动点的计算过程如下
+
+
 $$ ⊥≤ f(⊥)  ≤ f^2(⊥) ≤ f^3(⊥)≤ ...$$
 
 
@@ -37,13 +41,17 @@ dataflow problem的实例包含这几个部分：
 4. 交汇运算，当一个结点有多个incoming edge时，如何结合多个输入，是交还是并
 5. 对于CFG的每个结点n对应的dataflow function: _fn : D → D_ ，即执行语句n的效果
 
-must-analysis的交汇运算是交，may-analysis的交汇运算是并
+must-analysis的交汇运算是交，may-analysis的交汇运算是并。
 常见的fn的形式是 _fn(S) = (S - KILLn) union GENn_
 
 一个具体的dataflow 例子，Forward May
+
+
 $$
 In_s = \cup_{s\prime\in pred(s)} Out_{s\prime}    
 $$
+
+
 $$
 Out_s = gen_s \cup  (In_s - kill_s)
 $$
@@ -52,28 +60,44 @@ $$
 再具体的例子就是 live variable，available expression 这些。
 ## Solve Dataflow Equations
 不动点
+
+
 $$
 x_1 = F_1(x_1,...,x_n) 
 $$
+
+
 $$
 x_2= F_2(x_2,...,x_n)
 $$
+
+
 把CFG的约束带入语句本身的约束,就变成上面这种形式,整体变成 `F : Ln → Ln`
-这样一个函数，然后可以求不动点。
+这样一个函数，然后可以求不动点。当然这种方法的复杂度不是最好的。     
 
 ## MOP,LFP
 * 如果f是单调的，那么`f(x ⊓ y) ≤ f(x) ⊓ f(y）`
 * 如果f是分配的，那么` f(x ⊓ y) = f(x) ⊓ f(y）`
 
-枚举路径的值 
-$$ h(f(x)) ⊓ h(g( y)) )) $$
+![Meet-Over-Path](/assets/meet_over_path.png)
 
-不动点方法计算的值
-$$ h(f(x) ⊓ g( y)) $$
+枚举所有路径，然后交汇的值      
 
-交汇在分配函数时，最小不动点的值(LFP)才等于meet over all path的值(MOP)，否则一般是LFP<MOP
+$$ h(f(x)) ⊓ h(g( y)) )) $$     
+
+不动点方法计算的值     
+
+$$ h(f(x) ⊓ g( y)) $$       
+
+交汇在分配函数时，最小不动点的值(LFP)才等于meet over all path的值(MOP)，否则一般是`LFP<MOP`
 
 注意这里的`LFP<MOP`方向是和问题的交汇运算有关的， 如果是并的话就是`MOP<LFP`
+
+最后一张图总结 
+
+![Lattice](/assets/lattice.png)
+
+
 ## Reference
 [熊英飞的软件分析技术](https://xiongyingfei.github.io/SA/2018/main.htm)     
 [Susan Horwitz的CS704](http://pages.cs.wisc.edu/~horwitz/CS704-NOTES/2.DATAFLOW.html)      
