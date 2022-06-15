@@ -5,6 +5,10 @@ baseurl:      ""
 paginate:     1
 locale:       "en"
 
+author:
+  name:       nemozqqz
+  url:        https://nemozqqz.github.io 
+
 # Gems
 gems:
   - jekyll-paginate
