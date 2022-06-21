@@ -5,13 +5,19 @@ baseurl:      ""
 paginate:     1
 locale:       "en"
 
+github:
+    url: https://nemozqqz.github.io
+
 author:
   name:       nemozqqz
   url:        https://nemozqqz.github.io 
 
 # Gems
-gems:
+plugins:
+  - jekyll-feed
   - jekyll-paginate
 
 #Others
 markdown: kramdown
+
+
