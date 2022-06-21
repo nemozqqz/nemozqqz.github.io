@@ -82,8 +82,12 @@ public static int checkComponentPermission(String permission, int uid, int ownin
 **总结：
 AMS允许访问`bindService`接口的binder `callingUid`和传入的参数`IApplicationThread`不是来自同一个uid， `callingUid`决定了能否访问目标服务**
 
-那么一个想法就产生了,我们可以用system shell向AMS发起 `bindService` 请求, `IApplicationThread` 参数借用我们
-可控的低权限App的 `IApplicationThread` 。AMS权限认证结果是system权限,因此我们可以访问受厂商权限保护的service。
+更准确的问题是:
+
+> How to *bindService* from (system) shell (with normal app)?
+
+我们可以用system shell向AMS发起 `bindService` 请求, `IApplicationThread` 参数借用我们可控的低权限App的 `IApplicationThread` 。AMS权限认证结果是system权限,因此我们可以访问受厂商权限保护的service。
+
 
 过程如下:
 
